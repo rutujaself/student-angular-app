@@ -1,6 +1,6 @@
 form {
   background: white;
-  padding: 20px;
+  padding: 20px 20px 50px 20px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   max-width: 800px;
@@ -9,7 +9,6 @@ form {
 
 mat-form-field {
   width: 100%;
-  margin-bottom: 10px;
 }
 
 mat-radio-group {
@@ -27,3 +26,24 @@ mat-radio-group {
 .submitBtn:disabled {
   background-color: gray;
 }
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.align-center {
+  align-items: center;
+  gap: 40px;
+}
+
+:host ::ng-deep .form-field .mat-mdc-text-field-wrapper {
+  height: 54px !important;
+}
+
+mat-label {
+  font-size: 0.9rem;
+}
+
+
+

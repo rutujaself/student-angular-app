@@ -3,5 +3,7 @@ export interface Student {
   age: number;
   gender: string;
   course: string;
-  termsAccepted: boolean;
+  hobby: boolean;
+  department: string;
+  remarks: string;
 }
