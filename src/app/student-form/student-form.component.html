@@ -1,56 +1,57 @@
 <form [formGroup]="studentForm">
 
-<div class="form-row mb-3">
-  <mat-form-field appearance="outline" class="form-field">
-    <mat-label>Name</mat-label>
-    <input matInput formControlName="name">
+  <div class="form-row mb-3">
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Age</mat-label>
+      <input matInput type="number" inputmode="numeric" formControlName="age">
+    </mat-form-field>
+  </div>
+
+  <div class="form-row">
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Department</mat-label>
+
+      <mat-select formControlName="department">
+        @for(department of departments; track department) {
+        <mat-option [value]="department">{{ department }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Course</mat-label>
+      <input matInput formControlName="course" [matAutocomplete]="auto">
+
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let course of filteredCourses | async" [value]="course">
+          {{ course }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+
+  <div class="form-row align-center">
+    <mat-label>Gender * :</mat-label>
+    <mat-radio-group formControlName="gender">
+      <mat-radio-button value="Male">Male</mat-radio-button>
+      <mat-radio-button value="Female">Female</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Remarks</mat-label>
+    <textarea matInput rows="2" formControlName="remarks">
+  </textarea>
   </mat-form-field>
-
-  <mat-form-field appearance="outline" class="form-field">
-    <mat-label>Age</mat-label>
-    <input matInput type="number" inputmode="numeric" formControlName="age">
-  </mat-form-field>
-</div>
-
-<div class="form-row">
-  <mat-form-field appearance="outline" class="form-field">
-    <mat-label>Department</mat-label>
-
-    <mat-select formControlName="department">
-    @for(department of departments; track department) {
-      <mat-option [value]="department">{{ department }}</mat-option>
-    }
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline" class="form-field">
-  <mat-label>Course</mat-label>
-  <input matInput formControlName="course" [matAutocomplete]="auto">
-
-  <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let course of filteredCourses | async" [value]="course">
-      {{ course }}
-    </mat-option>
-  </mat-autocomplete>
-</mat-form-field>
-</div>
-
-<div class="form-row align-center">
-  <mat-radio-group formControlName="gender">
-    <mat-radio-button value="Male">Male</mat-radio-button>
-    <mat-radio-button value="Female">Female</mat-radio-button>
-  </mat-radio-group>
 
   <mat-checkbox formControlName="hobby">
     Likes Coding
   </mat-checkbox>
-</div>
-
-  <mat-form-field appearance="outline">
-  <mat-label>Remarks</mat-label>
-  <textarea matInput rows="2" formControlName="remarks">
-  </textarea>
-</mat-form-field>
 
 
   <button mat-button class="submitBtn" [disabled]="!studentForm.valid" (click)="submit()">

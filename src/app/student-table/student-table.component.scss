@@ -4,13 +4,26 @@ mat-table {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   overflow: auto;
   margin: 0 auto;
-  max-height: 12rem;
-  overflow: hidden;
+  max-height: 100vh;
+  overflow-y: auto;
 }
 
-mat-table:hover {
-  overflow: auto;
+/* Mobile View */
+@media screen and (max-width: 768px) {
+
+  mat-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;   
+    white-space: nowrap;
+  }
+
+  mat-header-row,
+  mat-row {
+    min-width: 800px;  // adjust based on your columns
+  }
 }
+
 
 mat-header-cell {
   font-weight: bold;
