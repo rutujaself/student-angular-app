@@ -4,6 +4,12 @@ mat-table {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   overflow: auto;
   margin: 0 auto;
+  max-height: 12rem;
+  overflow: hidden;
+}
+
+mat-table:hover {
+  overflow: auto;
 }
 
 mat-header-cell {
