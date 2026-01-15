@@ -14,13 +14,20 @@ export class StudentTableComponent {
   @Input() students: any[] = [];
   @Output() edit = new EventEmitter<any>();
   @Output() delete = new EventEmitter<number>();
-
   displayedColumns: string[] = ['name', 'age', 'gender', 'course', 'hobby', 'actions'];
 
+  /**
+ * Called when Edit button is clicked for a row
+ * Emits the student object and its index to the parent component
+ */ 
   onEdit(student: any, index: number) {
     this.edit.emit({ student, index });
   }
 
+  /**
+ * Called when Delete button is clicked for a row
+ * Emits the index of the row to delete to the parent component
+ */ 
   onDelete(index: number) {
     this.delete.emit(index);
   }

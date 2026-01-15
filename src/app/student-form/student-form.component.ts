@@ -39,19 +39,24 @@ export class StudentFormComponent implements OnChanges {
     });
   }
 
+  /**
+ * If editStudent is provided, patch the form with its values
+ **/
   ngOnChanges(changes: SimpleChanges) {
     if (changes['editStudent'] && this.editStudent) {
       this.studentForm.patchValue(this.editStudent);
     }
   }
 
+  /**
+   * Called when form submit button is clicked
+   * Emits the student object to parent component 
+   */
   submit() {
     if (this.studentForm.invalid) {
       return;
     }
     this.studentAdded.emit(this.studentForm.value);
-    this.studentForm.reset({
-      hobby: false
-    });
+    this.studentForm.reset({ hobby: false }); //reset hobby
   }
 }
