@@ -28,6 +28,7 @@ export class StudentFormComponent implements OnChanges {
   @Input() editStudent: any = null;
   @Output() studentAdded = new EventEmitter<any>();
   studentForm: FormGroup;
+  courses: string[] = ['Angular','React','Node'];
 
   constructor(private fb: FormBuilder) {
     this.studentForm = this.fb.group({

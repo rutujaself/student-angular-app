@@ -29,7 +29,7 @@ export class AppComponent {
   addOrUpdateStudent(student: Student) {
     if (this.editIndex !== null) {
       this.students[this.editIndex] = student;
-      this.students = [...this.students];
+      this.students = [...this.students]; //trigger table refesh
       this.editIndex = null;
     } else {
       this.students = [...this.students, student];

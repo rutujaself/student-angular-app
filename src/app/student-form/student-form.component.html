@@ -12,10 +12,11 @@
 
   <mat-form-field appearance="outline">
     <mat-label>Course</mat-label>
+
     <mat-select formControlName="course">
-      <mat-option value="Angular">Angular</mat-option>
-      <mat-option value="React">React</mat-option>
-      <mat-option value="Node">Node</mat-option>
+    @for(course of courses; track course) {
+      <mat-option [value]="course">{{ course }}</mat-option>
+    }
     </mat-select>
   </mat-form-field>
 
